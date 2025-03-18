@@ -1,0 +1,23 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  <!-- Ensures correct character encoding -->  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Library Hours</title>  
+    <link rel="stylesheet" href="styles.css">  <!-- Links external CSS file -->  
+</head>  
+<body>  
+    <header>  
+        <h1>Library Hours</h1>  
+        <input type="date" id="datePicker">  <!-- Date selection input -->  
+        <button onclick="fetchLibraryHours()">Check Hours</button>  <!-- Runs JavaScript function -->  
+    </header>  
+
+    <main>  
+        <p id="statusMessage">Select a date to view hours.</p>  <!-- Shows messages to users -->  
+        <div id="libraryHours"></div>  <!-- Displays fetched library hours -->  
+    </main>  
+
+    <script src="script.js"></script>  <!-- Links JavaScript file -->  
+</body>  
+</html>
