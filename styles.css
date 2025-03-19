@@ -1,60 +1,81 @@
-/* Reset some default browser styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+/* General body styling */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-    padding: 20px;
+    background-color: #f4f7fc;
+    color: #333;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    height: 100vh;
+    margin: 0;
 }
 
-header {
+/* Container for the content */
+.container {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
     text-align: center;
-    margin-bottom: 30px;
+    max-width: 500px;
+    width: 100%;
 }
 
-h1 {
-    color: #2c3e50;
+/* Header styling */
+h2 {
+    font-size: 24px;
+    color: #007bff;
+    margin-bottom: 20px;
 }
 
-input[type="date"] {
+/* Input and button styling */
+.date-picker {
     padding: 10px;
-    margin-top: 10px;
     font-size: 16px;
-    border: 1px solid #ccc;
     border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
 }
 
-button {
+.check-button {
     padding: 10px 20px;
-    margin-top: 10px;
     font-size: 16px;
-    background-color: #3498db;
+    background-color: #007bff;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-button:hover {
-    background-color: #2980b9;
+.check-button:hover {
+    background-color: #0056b3;
 }
 
-#statusMessage {
-    font-size: 18px;
-    color: #7f8c8d;
-}
-
-#libraryHours {
-    font-size: 18px;
+/* Result section styling */
+.result {
     margin-top: 20px;
-    font-weight: bold;
-    color: #27ae60;
-    text-align: center;
+    padding: 20px;
+    background-color: #e9f7ff;
+    border-radius: 5px;
+}
+
+/* Display the selected date, day, and time nicely */
+.selected-date, .library-hours, .status-message {
+    font-size: 18px;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
+
+/* Different background for different messages */
+.library-hours {
+    background-color: #d1f7d1;
+}
+
+.status-message {
+    background-color: #ffe9e9;
+    color: #d9534f;
 }
