@@ -21,7 +21,7 @@ function fetchLibraryHours() {
 
     // Display the selected date and time for debugging (optional)
     console.log("Selected Date (in CST):", formattedDate);
-    document.getElementById("selectedDateDisplay").innerText = `Selected Date: ${formattedDate}`;
+    document.getElementById("selectedDateDisplay").innerHTML = `Date: <strong>${formattedDate}</strong>`;
 
     // Check if the selected date is during the exam period (e.g., December 10-23)
     if (isExamPeriod(date)) {
@@ -70,12 +70,6 @@ function isExamPeriod(date) {
 
 // Function to display the library hours on the web page
 function displayLibraryHours(hours) {
-    document.getElementById("libraryHours").innerText = hours;
-    document.getElementById("statusMessage").innerText = ""; // Clear any previous status message
-}
-
-// Additional message for reservation period (6:00 PM to 11:00 PM)
-function displayAdditionalReservationMessage() {
-    let reservationMessage = "Reservations can be made between 6:00 PM and 11:00 PM (CST).";
-    document.getElementById("statusMessage").innerText = reservationMessage;
+    document.getElementById("libraryHours").innerHTML = `<strong>Library Hours:</strong> ${hours}`;
+    document.getElementById("statusMessage").innerHTML = ""; // Clear any previous status message
 }
