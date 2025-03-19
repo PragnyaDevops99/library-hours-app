@@ -9,21 +9,31 @@ function fetchLibraryHours() {
         return;
     }
 
-    // Convert the selected date to CST time zone
-    let date = new Date(selectedDate + "T00:00:00-06:00"); // Ensures CST time
+    // Convert selected date to a JavaScript Date object in CST
+    let date = new Date(selectedDate + "T12:00:00-06:00"); // Forces noon CST to prevent UTC shift
 
     // Get the day of the week (0 = Sunday, 1 = Monday, ..., 6 = Saturday)
     let day = date.getDay();
 
-    // Get formatted date for display
-    let formattedDate = date.toLocaleDateString("en-US", { timeZone: "America/Chicago", weekday: "long", year: "numeric", month: "long", day: "numeric" });
+    // Format the selected date properly
+    let formattedDate = date.toLocaleDateString("en-US", {
+        timeZone: "America/Chicago",
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric"
+    });
 
-    // Get current CST time
-    let currentTime = new Date().toLocaleTimeString("en-US", { timeZone: "America/Chicago", hour: "2-digit", minute: "2-digit" });
+    // Get the current time in CST
+    let currentTime = new Date().toLocaleTimeString("en-US", {
+        timeZone: "America/Chicago",
+        hour: "2-digit",
+        minute: "2-digit"
+    });
 
     let message = "";
 
-    // Assign hours based on the day selected
+    // Assign hours based on the selected date
     if (day >= 1 && day <= 5) { // Monday to Friday
         message = "<strong>Monday to Friday:</strong> 9:00 AM - 6:00 PM CST";
     } else if (day === 6) { // Saturday
