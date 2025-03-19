@@ -1,80 +1,60 @@
-/* General body and font styling */
+/* Reset some default styles */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
+    text-align: center;
+    background-color: #f4f4f4;
     margin: 0;
     padding: 0;
-    color: #333;
 }
 
-/* Header styling */
-header {
-    background-color: #4CAF50;
-    color: white;
-    text-align: center;
+/* Container Styling */
+.container {
+    width: 50%;
+    margin: 100px auto;
     padding: 20px;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
 }
 
-/* Table Styling */
-#displayTable {
-    width: 100%;
-    margin: 20px 0;
-    border-collapse: collapse;
-}
-
-#displayTable th, #displayTable td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: center;
-}
-
-#displayTable th {
-    background-color: #f2f2f2;
-    font-weight: bold;
-}
-
-#displayTable td {
-    background-color: #fff;
-}
-
-/* Library Hours and Status Messages */
-#statusMessage {
-    text-align: center;
-    font-size: 18px;
-    color: #d9534f;  /* Red color for status messages */
-    margin-bottom: 20px;
-}
-
-#libraryHours {
-    font-size: 20px;
-    text-align: center;
-    font-weight: bold;
-    color: #4CAF50;  /* Green color for library hours */
+/* Date Picker Styling */
+input[type="date"] {
+    padding: 8px;
+    font-size: 16px;
+    margin: 10px 0;
 }
 
 /* Button Styling */
 button {
-    padding: 10px 20px;
-    background-color: #4CAF50;
+    padding: 10px 15px;
+    font-size: 16px;
+    background-color: #007bff;
     color: white;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
     margin-top: 10px;
+    border-radius: 5px;
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #0056b3;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    #displayTable {
-        font-size: 14px;
-    }
+/* Selected Date Display */
+.display-box {
+    margin-top: 20px;
+    padding: 15px;
+    background: #e3e3e3;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    border-radius: 5px;
+}
 
-    #statusMessage, #libraryHours {
-        font-size: 16px;
-    }
+/* Library Hours Message */
+#libraryHours {
+    font-size: 18px;
+    margin-top: 20px;
+    font-weight: bold;
+    color: #ff4500;
 }
