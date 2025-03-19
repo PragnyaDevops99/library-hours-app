@@ -3,29 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Library Hours</title>
+    <title>Library Hours Checker</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
     <div class="container">
         <h1>Library Hours Checker</h1>
         
-        <!-- Date Picker -->
+        <label for="datePicker">Select a Date:</label>
         <input type="date" id="datePicker">
 
-        <!-- Button to Check Hours -->
         <button onclick="fetchLibraryHours()">Check Hours</button>
 
-        <!-- Display Selected Date -->
-        <div class="display-box">
-            <p id="selectedDate">Please select a date</p>
+        <div id="outputContainer">
+            <table>
+                <tr>
+                    <th>Date</th>
+                    <th>Day</th>
+                    <th>Time (CST)</th>
+                    <th>Library Hours</th>
+                </tr>
+                <tr>
+                    <td id="dateOutput">-</td>
+                    <td id="dayOutput">-</td>
+                    <td id="timeOutput">-</td>
+                    <td id="libraryHours">-</td>
+                </tr>
+            </table>
         </div>
-
-        <!-- Display Library Hours Message -->
-        <p id="libraryHours"></p>
     </div>
-
+    
     <script src="script.js"></script>
 </body>
 </html>
