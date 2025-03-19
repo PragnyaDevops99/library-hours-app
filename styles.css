@@ -1,44 +1,60 @@
-/* General body styling */
+/* Reset some default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
-    margin: 0;
+    background-color: #f4f4f9;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-/* Centering header */
 header {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
-/* Styling for input and button */
-.input-group {
-    max-width: 400px;
-    margin: auto;
+h1 {
+    color: #2c3e50;
 }
 
-/* Message styling */
+input[type="date"] {
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    margin-top: 10px;
+    font-size: 16px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
 #statusMessage {
-    text-align: center;
-    font-size: 1.2em;
-    margin-bottom: 10px;
+    font-size: 18px;
+    color: #7f8c8d;
 }
 
-/* Library hours display */
 #libraryHours {
+    font-size: 18px;
     margin-top: 20px;
-}
-
-/* Responsive table */
-@media (max-width: 600px) {
-    #libraryHours {
-        font-size: 14px;
-    }
-}
-
-/* Highlight reserved hours */
-.reservation-required {
-    color: red;
     font-weight: bold;
+    color: #27ae60;
+    text-align: center;
 }
