@@ -60,22 +60,42 @@ h2 {
     border-radius: 5px;
 }
 
-/* Display the selected date, day, and time nicely */
-.selected-date, .library-hours, .status-message {
-    font-size: 18px;
-    padding: 10px;
+/* Tabular styling */
+.time-table {
+    width: 100%;
     margin-top: 10px;
-    border-radius: 5px;
-    background-color: #fff;
-    border: 1px solid #ccc;
+    border-collapse: collapse;
 }
 
-/* Different background for different messages */
+.time-table th, .time-table td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.time-table th {
+    background-color: #007bff;
+    color: white;
+}
+
+.time-table td {
+    background-color: #f9f9f9;
+}
+
+/* Display the library hours with different styles */
 .library-hours {
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 18px;
     background-color: #d1f7d1;
+    border-radius: 5px;
 }
 
 .status-message {
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 16px;
     background-color: #ffe9e9;
     color: #d9534f;
+    border-radius: 5px;
 }
