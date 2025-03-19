@@ -1,101 +1,80 @@
-/* General body styling */
+/* General body and font styling */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f7fc;
-    color: #333;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    background-color: #f4f4f9;
     margin: 0;
-}
-
-/* Container for the content */
-.container {
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    text-align: center;
-    max-width: 500px;
-    width: 100%;
+    padding: 0;
+    color: #333;
 }
 
 /* Header styling */
-h2 {
-    font-size: 24px;
-    color: #007bff;
+header {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Table Styling */
+#displayTable {
+    width: 100%;
+    margin: 20px 0;
+    border-collapse: collapse;
+}
+
+#displayTable th, #displayTable td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+#displayTable th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+#displayTable td {
+    background-color: #fff;
+}
+
+/* Library Hours and Status Messages */
+#statusMessage {
+    text-align: center;
+    font-size: 18px;
+    color: #d9534f;  /* Red color for status messages */
     margin-bottom: 20px;
 }
 
-/* Input and button styling */
-.date-picker {
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    margin-right: 10px;
+#libraryHours {
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+    color: #4CAF50;  /* Green color for library hours */
 }
 
-.check-button {
+/* Button Styling */
+button {
     padding: 10px 20px;
-    font-size: 16px;
-    background-color: #007bff;
+    background-color: #4CAF50;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.check-button:hover {
-    background-color: #0056b3;
-}
-
-/* Result section styling */
-.result {
-    margin-top: 20px;
-    padding: 20px;
-    background-color: #e9f7ff;
-    border-radius: 5px;
-}
-
-/* Tabular styling */
-.time-table {
-    width: 100%;
-    margin-top: 10px;
-    border-collapse: collapse;
-}
-
-.time-table th, .time-table td {
-    padding: 10px;
-    text-align: center;
-    border: 1px solid #ddd;
-}
-
-.time-table th {
-    background-color: #007bff;
-    color: white;
-}
-
-.time-table td {
-    background-color: #f9f9f9;
-}
-
-/* Display the library hours with different styles */
-.library-hours {
-    margin-top: 20px;
-    padding: 10px;
-    font-size: 18px;
-    background-color: #d1f7d1;
-    border-radius: 5px;
-}
-
-.status-message {
-    margin-top: 10px;
-    padding: 10px;
     font-size: 16px;
-    background-color: #ffe9e9;
-    color: #d9534f;
-    border-radius: 5px;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #displayTable {
+        font-size: 14px;
+    }
+
+    #statusMessage, #libraryHours {
+        font-size: 16px;
+    }
 }
