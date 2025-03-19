@@ -15,13 +15,19 @@ function fetchLibraryHours() {
     // Convert to CST (Central Standard Time)
     let options = { timeZone: 'America/Chicago', hour12: true };
     let formattedDate = date.toLocaleString('en-US', options);
-
+    
     // Get the day of the week (0 = Sunday, 1 = Monday, ..., 6 = Saturday)
     let day = date.getDay();
+    
+    // Get the time in hours and minutes
+    let time = date.toLocaleTimeString('en-US', { timeZone: 'America/Chicago', hour: '2-digit', minute: '2-digit' });
 
-    // Display the selected date and time for debugging (optional)
-    console.log("Selected Date (in CST):", formattedDate);
-    document.getElementById("selectedDateDisplay").innerHTML = `Date: <strong>${formattedDate}</strong>`;
+    // Display the selected date, day, and time in the table
+    let dateString = formattedDate.split(",")[0]; // Get just the date part
+    let dayString = formattedDate.split(",")[1].trim(); // Get the day part
+    document.getElementById("selectedDate").innerHTML = dateString;
+    document.getElementById("selectedDay").innerHTML = dayString;
+    document.getElementById("selectedTime").innerHTML = time;
 
     // Check if the selected date is during the exam period (e.g., December 10-23)
     if (isExamPeriod(date)) {
