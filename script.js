@@ -12,45 +12,44 @@ function fetchLibraryHours() {
     // Create a new Date object using the selected date
     let date = new Date(selectedDate);
 
-    // Convert to CST (Central Standard Time)
-    let options = { timeZone: 'America/Chicago', hour12: true };
-    let formattedDate = date.toLocaleString('en-US', options);
-    
     // Get the day of the week (0 = Sunday, 1 = Monday, ..., 6 = Saturday)
     let day = date.getDay();
-    
-    // Get the time in hours and minutes
-    let time = date.toLocaleTimeString('en-US', { timeZone: 'America/Chicago', hour: '2-digit', minute: '2-digit' });
+
+    // Get the current time in Central Standard Time (CST)
+    let currentTime = date.toLocaleString("en-US", { timeZone: "America/Chicago" });
+    currentTime = new Date(currentTime).toLocaleTimeString();
 
     // Display the selected date, day, and time in the table
-    let dateString = formattedDate.split(",")[0]; // Get just the date part
-    let dayString = formattedDate.split(",")[1].trim(); // Get the day part
-    document.getElementById("selectedDate").innerHTML = dateString;
-    document.getElementById("selectedDay").innerHTML = dayString;
-    document.getElementById("selectedTime").innerHTML = time;
+    document.getElementById("selectedDate").innerText = formatDate(date);
+    document.getElementById("selectedDay").innerText = formatDay(day);
+    document.getElementById("selectedTime").innerText = currentTime;
 
-    // Check for different days of the week and provide appropriate hours
-    switch (day) {
-        case 0: // Sunday
-            displayLibraryHours("Closed");
-            break;
-        case 6: // Saturday
-            displayLibraryHours("Saturday: 9:00 AM - 2:00 PM (CST)");
-            break;
-        case 1: // Monday
-        case 2: // Tuesday
-        case 3: // Wednesday
-        case 4: // Thursday
-        case 5: // Friday
-            displayLibraryHours("Monday to Friday: 9:00 AM - 11:00 PM (CST)");
-            break;
-        default:
-            displayLibraryHours("⚠️ Invalid day.");
+    // Display the appropriate library hours
+    if (day >= 1 && day <= 5) { // Monday to Friday
+        document.getElementById("libraryHours").innerText = "9:00 AM to 11:00 PM CST";
+    } else if (day === 6) { // Saturday
+        document.getElementById("libraryHours").innerText = "9:00 AM to 2:00 PM CST";
+    } else { // Sunday
+        document.getElementById("libraryHours").innerText = "Closed";
     }
 }
 
-// Function to display the library hours on the web page
-function displayLibraryHours(hours) {
-    document.getElementById("libraryHours").innerHTML = `<strong>Library Hours:</strong> ${hours}`;
-    document.getElementById("statusMessage").innerHTML = ""; // Clear any previous status message
+// Function to format the date to display in the table
+function formatDate(date) {
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    return date.toLocaleDateString('en-US', options);
+}
+
+// Function to format the day of the week
+function formatDay(day) {
+    switch (day) {
+        case 0: return "Sunday";
+        case 1: return "Monday";
+        case 2: return "Tuesday";
+        case 3: return "Wednesday";
+        case 4: return "Thursday";
+        case 5: return "Friday";
+        case 6: return "Saturday";
+        default: return "Invalid Day";
+    }
 }
