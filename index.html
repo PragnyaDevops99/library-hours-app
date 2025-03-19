@@ -1,31 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US"> <!-- Ensures week starts from Sunday -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library Hours</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+
+        input[type="date"] {
+            font-size: 16px;
+            padding: 8px;
+        }
+
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            width: 50%;
+        }
+
+        td, th {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: lightgray;
+        }
+    </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>Library Hours Checker</h1>
-        
-        <!-- Date Picker -->
-        <input type="date" id="datePicker">
+    <h2>Select a Date</h2>
+    <input type="date" id="datePicker">
+    <button onclick="fetchLibraryHours()">Check Hours</button>
 
-        <!-- Button to Check Hours -->
-        <button onclick="checkLibraryHours()">Check Hours</button>
+    <h3>Selected Date Details</h3>
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Day</th>
+            <th>Time</th>
+        </tr>
+        <tr>
+            <td id="dateOutput">-</td>
+            <td id="dayOutput">-</td>
+            <td id="timeOutput">-</td>
+        </tr>
+    </table>
 
-        <!-- Display Selected Date -->
-        <div class="display-box">
-            <p id="selectedDate">Please select a date</p>
-        </div>
-
-        <!-- Display Library Hours Message -->
-        <p id="libraryHours"></p>
-    </div>
+    <h3>Library Hours</h3>
+    <p id="libraryHours"></p>
 
     <script src="script.js"></script>
+
 </body>
 </html>
