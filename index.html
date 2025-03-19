@@ -4,16 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library Hours</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS file -->
 </head>
 <body>
-    <h2>Library Hours Checker</h2>
-    <input type="date" id="datePicker">
-    <button onclick="fetchLibraryHours()">Check Hours</button>
+    <header>
+        <h1>Library Hours</h1>
+        <input type="date" id="datePicker"> <!-- Date selection input -->
+        <button onclick="fetchLibraryHours()">Check Hours</button> <!-- Button triggers JS function -->
+    </header>
 
-    <div id="selectedDateDisplay"></div>
-    <div id="libraryHours"></div>
-    <div id="statusMessage"></div>
+    <main>
+        <p id="statusMessage">Select a date to view hours.</p> <!-- Message to guide users -->
+        <div id="libraryHours"></div> <!-- Area to display fetched library hours -->
+    </main>
 
-    <script src="app.js"></script>  <!-- Link to your updated JS file -->
+    <script src="script.js"></script> <!-- Link to external JavaScript file -->
 </body>
 </html>
