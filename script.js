@@ -12,11 +12,15 @@ function fetchLibraryHours() {
     // Create a new Date object using the selected date
     let date = new Date(selectedDate);
 
+    // Convert to CST (Central Standard Time)
+    let options = { timeZone: 'America/Chicago', hour12: true };
+    let formattedDate = date.toLocaleString('en-US', options);
+
     // Get the day of the week (0 = Sunday, 1 = Monday, ..., 6 = Saturday)
     let day = date.getDay();
 
     // Display the selected date for debugging (optional)
-    console.log("Selected Date:", selectedDate);
+    console.log("Selected Date (in CST):", formattedDate);
     console.log("Day of the Week (0 = Sunday, 1 = Monday, etc.):", day);
 
     // Check if the selected date is during the exam period (for example, December 10-23)
@@ -29,23 +33,21 @@ function fetchLibraryHours() {
     switch (day) {
         case 0: // Sunday
         case 6: // Saturday
-            displayLibraryHours("Weekends: 9:00 AM - 3:00 PM");
+            // For weekends (Saturday & Sunday), the hours are 9:00 AM to 1:00 PM
+            displayLibraryHours("Weekends: 9:00 AM - 1:00 PM (CST)");
             break;
         case 1: // Monday
         case 2: // Tuesday
         case 3: // Wednesday
         case 4: // Thursday
         case 5: // Friday
-            // Check if the time is during regular hours (9:00 AM to 6:00 PM)
+            // For weekdays (Monday to Friday), the library is open from 9:00 AM to 6:00 PM
+            displayLibraryHours("Monday to Friday: 9:00 AM - 6:00 PM (CST)");
+
+            // Check if the time is during the reservation period (6:00 PM to 11:00 PM)
             let currentTime = date.getHours();
-            if (currentTime >= 9 && currentTime < 18) {
-                displayLibraryHours("Monday to Friday: 9:00 AM - 6:00 PM (Open)");
-            } else if (currentTime >= 18 && currentTime <= 23) {
-                // If time is between 6:00 PM to 11:00 PM, check for reservation
-                displayLibraryHours("Monday to Friday (6:00 PM - 11:00 PM): Reservation Required");
-            } else {
-                // If the time is outside of regular hours
-                displayLibraryHours("The library is closed at this time.");
+            if (currentTime >= 18 && currentTime <= 23) {
+                displayAdditionalReservationMessage();
             }
             break;
         default:
@@ -70,4 +72,10 @@ function isExamPeriod(date) {
 function displayLibraryHours(hours) {
     document.getElementById("libraryHours").innerText = hours;
     document.getElementById("statusMessage").innerText = ""; // Clear any previous status message
+}
+
+// Function to display additional message for reservation period (6:00 PM to 11:00 PM)
+function displayAdditionalReservationMessage() {
+    let reservationMessage = "Reservations can be made between 6:00 PM and 11:00 PM (CST).";
+    document.getElementById("statusMessage").innerText = reservationMessage;
 }
