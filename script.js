@@ -1,38 +1,39 @@
-function checkLibraryHours() {
-    // Get the selected date from the input
-    let dateInput = document.getElementById("datePicker").value;
+// Function to fetch and display library hours based on the selected date
+function fetchLibraryHours() {
+    // Get the selected date from the input field
+    let selectedDate = document.getElementById("datePicker").value;
 
     // Check if a date is selected
-    if (!dateInput) {
-        document.getElementById("libraryHours").innerText = "⚠️ Please select a date.";
+    if (!selectedDate) {
+        document.getElementById("libraryHours").innerHTML = "<p style='color:red;'>⚠️ Please select a date.</p>";
         return;
     }
 
-    // Create a new Date object and get the day of the week
-    let selectedDate = new Date(dateInput);
-    let dayOfWeek = selectedDate.getDay(); // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
+    // Convert the selected date to CST time zone
+    let date = new Date(selectedDate + "T00:00:00-06:00"); // Ensures CST time
 
-    // Format the selected date
-    let formattedDate = selectedDate.toLocaleDateString("en-US", {
-        weekday: "long",
-        year: "numeric",
-        month: "long",
-        day: "numeric"
-    });
+    // Get the day of the week (0 = Sunday, 1 = Monday, ..., 6 = Saturday)
+    let day = date.getDay();
 
-    // Display the selected date in the box
-    document.getElementById("selectedDate").innerText = `📅 ${formattedDate}`;
+    // Get formatted date for display
+    let formattedDate = date.toLocaleDateString("en-US", { timeZone: "America/Chicago", weekday: "long", year: "numeric", month: "long", day: "numeric" });
 
-    // Determine the library hours based on the selected day
-    let message;
-    if (dayOfWeek === 0) {
-        message = "❌ Sunday: Closed";
-    } else if (dayOfWeek === 6) {
-        message = "🕒 Saturday: 9:00 AM - 3:00 PM CST";
-    } else {
-        message = "📖 Monday to Friday: 9:00 AM - 6:00 PM CST";
+    // Get current CST time
+    let currentTime = new Date().toLocaleTimeString("en-US", { timeZone: "America/Chicago", hour: "2-digit", minute: "2-digit" });
+
+    let message = "";
+
+    // Assign hours based on the day selected
+    if (day >= 1 && day <= 5) { // Monday to Friday
+        message = "<strong>Monday to Friday:</strong> 9:00 AM - 6:00 PM CST";
+    } else if (day === 6) { // Saturday
+        message = "<strong>Saturday:</strong> 9:00 AM - 3:00 PM CST";
+    } else if (day === 0) { // Sunday
+        message = "<strong>Sunday:</strong> Closed";
     }
 
-    // Display the message
-    document.getElementById("libraryHours").innerText = message;
+    // Display the selected date, day, and library hours
+    document.getElementById("dateOutput").innerHTML = `<strong>Date:</strong> ${formattedDate}`;
+    document.getElementById("timeOutput").innerHTML = `<strong>Current Time (CST):</strong> ${currentTime}`;
+    document.getElementById("libraryHours").innerHTML = message;
 }
