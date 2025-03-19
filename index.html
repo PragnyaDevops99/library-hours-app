@@ -1,62 +1,24 @@
 <!DOCTYPE html>
-<html lang="en-US"> <!-- Ensures week starts from Sunday -->
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library Hours</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 20px;
-        }
-
-        input[type="date"] {
-            font-size: 16px;
-            padding: 8px;
-        }
-
-        table {
-            margin: 20px auto;
-            border-collapse: collapse;
-            width: 50%;
-        }
-
-        td, th {
-            border: 1px solid black;
-            padding: 10px;
-            text-align: center;
-        }
-
-        th {
-            background-color: lightgray;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="container">
+        <h1>Library Hours</h1>
+        <input type="date" id="datePicker">
+        <button onclick="fetchLibraryHours()">Check Hours</button>
 
-    <h2>Select a Date</h2>
-    <input type="date" id="datePicker">
-    <button onclick="fetchLibraryHours()">Check Hours</button>
-
-    <h3>Selected Date Details</h3>
-    <table>
-        <tr>
-            <th>Date</th>
-            <th>Day</th>
-            <th>Time</th>
-        </tr>
-        <tr>
-            <td id="dateOutput">-</td>
-            <td id="dayOutput">-</td>
-            <td id="timeOutput">-</td>
-        </tr>
-    </table>
-
-    <h3>Library Hours</h3>
-    <p id="libraryHours"></p>
+        <div class="output">
+            <p id="dateOutput"></p>
+            <p id="timeOutput"></p>
+            <p id="libraryHours"></p>
+        </div>
+    </div>
 
     <script src="script.js"></script>
-
 </body>
 </html>
