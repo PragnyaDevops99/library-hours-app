@@ -1,23 +1,44 @@
+/* General body styling */
 body {
-    font-family: Arial, sans-serif;  /* Uses a clean font */
-    text-align: center;  /* Centers everything */
-    margin: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 20px;
 }
 
+/* Centering header */
 header {
-    margin-bottom: 20px;  /* Adds spacing below header */
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-input, button {
-    padding: 10px;  /* Adds spacing inside the elements */
-    margin: 5px;  /* Adds space around them */
-    font-size: 16px;  /* Increases text size */
+/* Styling for input and button */
+.input-group {
+    max-width: 400px;
+    margin: auto;
 }
 
+/* Message styling */
+#statusMessage {
+    text-align: center;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+/* Library hours display */
 #libraryHours {
     margin-top: 20px;
-    padding: 15px;
-    border: 1px solid #ccc;  /* Light border */
-    display: inline-block;  
-    background-color: #f9f9f9;  /* Light gray background */
+}
+
+/* Responsive table */
+@media (max-width: 600px) {
+    #libraryHours {
+        font-size: 14px;
+    }
+}
+
+/* Highlight reserved hours */
+.reservation-required {
+    color: red;
+    font-weight: bold;
 }
