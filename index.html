@@ -1,37 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library Hours</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <div class="container">
-        <h2>Check Library Hours</h2>
-        <input type="date" id="datePicker" class="date-picker">
-        <button onclick="fetchLibraryHours()" class="check-button">Check Hours</button>
+    <header>
+        <h1>Library Hours</h1>
+        <input type="date" id="datePicker">  <!-- Date selection input -->
+        <button onclick="fetchLibraryHours()">Check Hours</button>  <!-- Runs JavaScript function -->
+    </header>
 
-        <div class="result">
-            <!-- Tabular display for Date, Day, and Time -->
-            <table id="timeTable" class="time-table">
-                <tr>
-                    <th>Date</th>
-                    <th>Day</th>
-                    <th>Time</th>
-                </tr>
-                <tr>
-                    <td id="selectedDate"></td>
-                    <td id="selectedDay"></td>
-                    <td id="selectedTime"></td>
-                </tr>
-            </table>
+    <main>
+        <div id="statusMessage"></div> <!-- Displays status messages -->
 
-            <div id="libraryHours" class="library-hours"></div>
-            <div id="statusMessage" class="status-message"></div>
-        </div>
-    </div>
+        <!-- Display date, day, and time in a tabular format -->
+        <table id="displayTable">
+            <tr>
+                <th>Date</th>
+                <th>Day</th>
+                <th>Time</th>
+            </tr>
+            <tr>
+                <td id="selectedDate">N/A</td>
+                <td id="selectedDay">N/A</td>
+                <td id="selectedTime">N/A</td>
+            </tr>
+        </table>
 
-    <script src="app.js"></script>
+        <!-- Display library hours -->
+        <div id="libraryHours"></div> <!-- Displays fetched library hours -->
+    </main>
+
+    <script src="app.js"></script>  <!-- Links JavaScript file -->
 </body>
+
 </html>
