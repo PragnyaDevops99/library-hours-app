@@ -1,33 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"> <!-- Ensures correct character encoding -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Mobile responsive -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library Hours</title>
-    
-    <!-- External CSS -->
-    <link rel="stylesheet" href="styles.css">
-
-    <!-- Bootstrap for styling -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS file -->
 </head>
 <body>
-
-    <header class="container text-center mt-4">
+    <header>
         <h1>Library Hours</h1>
-        <div class="input-group mb-3">
-            <input type="date" id="datePicker" class="form-control"> <!-- Date input -->
-            <button class="btn btn-primary" onclick="fetchLibraryHours()">Check Hours</button> <!-- Fetch hours -->
-        </div>
+        <input type="date" id="datePicker"> <!-- Date selection input -->
+        <button onclick="fetchLibraryHours()">Check Hours</button> <!-- Button triggers JS function -->
     </header>
 
-    <main class="container">
-        <p id="statusMessage" class="text-muted">Select a date to view hours.</p> <!-- Message updates dynamically -->
-        <div id="libraryHours" class="table-responsive"></div> <!-- Displays fetched hours -->
+    <main>
+        <p id="statusMessage">Select a date to view hours.</p> <!-- Message to guide users -->
+        <div id="libraryHours"></div> <!-- Area to display fetched library hours -->
     </main>
 
-    <!-- Link JavaScript file -->
-    <script src="script.js"></script>
-
+    <script src="script.js"></script> <!-- Link to external JavaScript file -->
 </body>
 </html>
