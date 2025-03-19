@@ -82,4 +82,3 @@ function displayLibraryHours(hours) {
     document.getElementById("libraryHours").innerText = hours;
     document.getElementById("statusMessage").innerText = ""; // Clear any previous status message
 }
-
