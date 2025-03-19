@@ -7,16 +7,23 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Library Hours</h1>
-        <input type="date" id="datePicker">
-        <button onclick="fetchLibraryHours()">Check Hours</button>
 
-        <div class="output">
-            <p id="dateOutput"></p>
-            <p id="timeOutput"></p>
-            <p id="libraryHours"></p>
+    <div class="container">
+        <h1>Library Hours Checker</h1>
+        
+        <!-- Date Picker -->
+        <input type="date" id="datePicker">
+
+        <!-- Button to Check Hours -->
+        <button onclick="checkLibraryHours()">Check Hours</button>
+
+        <!-- Display Selected Date -->
+        <div class="display-box">
+            <p id="selectedDate">Please select a date</p>
         </div>
+
+        <!-- Display Library Hours Message -->
+        <p id="libraryHours"></p>
     </div>
 
     <script src="script.js"></script>
