@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Declares that this is an HTML5 document -->
+    <!DOCTYPE html>
+
+    <!-- Specifies the language of the webpage as English -->
+    <html lang="en">
+
+<head>
+    <!-- Defines metadata and links for the document -->
+
+    <!-- Sets the character encoding to UTF-8 to support a wide range of characters and symbols -->
+    <meta charset="UTF-8">
+
+    <!-- Configures the viewport for responsive design:
+         - width=device-width: Sets the width of the page to match the screen width of the device
+         - initial-scale=1.0: Sets the initial zoom level to 100% to avoid automatic scaling -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Sets the title of the webpage (displayed in the browser tab) -->
+    <title>Library Hours Checker</title>
+
+    <!-- Links an external CSS file (styles.css) to apply custom styles to the page -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- The body section contains all the visible content of the webpage -->
+
+    <div class="container">
+        <!-- A div element that acts as a container for all the content to help with styling and layout -->
+
+        <h1>Library Hours Checker</h1>
+        <!-- Main heading of the webpage to inform users about the purpose of the page -->
+
+        <label for="datePicker">Select a Date:</label>
+        <!-- A label associated with the date input field (identified by id="datePicker").
+             This improves accessibility and helps users understand what the input field is for. -->
+
+        <input type="date" id="datePicker">
+        <!-- Input field that allows users to select a date from a built-in date picker.
+             The 'type="date"' ensures that the browser provides a calendar selection UI. -->
+
+        <button onclick="fetchLibraryHours()">Check Hours</button>
+        <!-- A button that users click to fetch the library hours.
+             When clicked, it triggers the JavaScript function fetchLibraryHours(), 
+             which is defined in an external script file (script.js). -->
+
+        <div id="outputContainer">
+            <!-- A div container that holds the output section where the results will be displayed -->
+
+            <table>
+                <!-- Creates a table to display the selected date, day, current time, and library hours -->
+
+                <tr>
+                    <!-- First table row containing column headers for better organization of data -->
+                    <th>Date</th> <!-- Column header for displaying the selected date -->
+                    <th>Day</th> <!-- Column header for displaying the corresponding day (e.g., Monday, Tuesday) -->
+                    <th>Time (CST)</th> <!-- Column header for displaying the current time in Central Standard Time (CST) -->
+                    <th>Library Hours</th> <!-- Column header for displaying the library’s operating hours -->
+                </tr>
+
+                <tr>
+                    <!-- Second table row containing placeholder data that will be dynamically updated by JavaScript -->
+                    <td id="dateOutput">-</td> <!-- Table cell that will be updated with the selected date -->
+                    <td id="dayOutput">-</td> <!-- Table cell that will be updated with the corresponding day -->
+                    <td id="timeOutput">-</td> <!-- Table cell that will be updated with the current time (CST) -->
+                    <td id="libraryHours">-</td> <!-- Table cell that will be updated with the fetched library hours -->
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <!-- Links an external JavaScript file (script.js) to add functionality to the webpage.
+         This script will handle fetching the library hours and updating the displayed data dynamically. -->
+</body>
+</html>
