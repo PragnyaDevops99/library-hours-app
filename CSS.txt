@@ -1,0 +1,60 @@
+/* Apply styling to the entire body of the page */
+body {
+    font-family: Arial, sans-serif; /* Sets the font style to Arial or a generic sans-serif */
+    text-align: center; /* Centers text content inside the body */
+    background-color: #f4f4f4; /* Sets a light gray background for the entire page */
+    margin: 20px; /* Adds a margin around the page for spacing */
+}
+
+/* Container styling to hold the main content */
+.container {
+    background: white; /* Sets a white background for the container */
+    padding: 20px; /* Adds space inside the container around its content */
+    border-radius: 10px; /* Rounds the edges of the container for a smooth appearance */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow for a 3D effect */
+    display: inline-block; /* Allows the container to size itself based on content */
+}
+
+/* Heading (h1) styling */
+h1 {
+    color: #333; /* Sets the text color to dark gray for better readability */
+}
+
+/* Styling for input fields and buttons */
+input, button {
+    margin: 10px; /* Adds space around the input and button elements */
+    padding: 10px; /* Increases clickable area and improves usability */
+    font-size: 16px; /* Sets a readable font size */
+}
+
+/* Button-specific styling */
+button {
+    background-color: #007BFF; /* Sets a blue background color */
+    color: white; /* Sets the text color to white for contrast */
+    border: none; /* Removes the default border */
+    cursor: pointer; /* Changes the cursor to a pointer when hovering over the button */
+}
+
+/* Button hover effect */
+button:hover {
+    background-color: #0056b3; /* Darkens the button color when hovered over for a visual effect */
+}
+
+/* Table styling */
+table {
+    width: 100%; /* Makes the table span the full width of its container */
+    margin-top: 20px; /* Adds spacing above the table */
+    border-collapse: collapse; /* Removes spacing between table cells for a cleaner look */
+}
+
+/* Styling for table header (th) and table data (td) */
+th, td {
+    padding: 10px; /* Adds space inside each table cell */
+    border: 1px solid #ddd; /* Adds a light gray border around each cell */
+}
+
+/* Styling for table headers */
+th {
+    background-color: #007BFF; /* Sets the background color of headers to blue */
+    color: white; /* Makes the text inside headers white for contrast */
+}
