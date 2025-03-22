@@ -1,0 +1,61 @@
+// Function to fetch and display library hours based on the selected date
+function fetchLibraryHours() {
+    // Get the value from the date input field (selected by the user)
+    let selectedDate = document.getElementById("datePicker").value;
+
+    // If no date is selected, display a warning message in red and exit the function
+    if (!selectedDate) {
+        document.getElementById("libraryHours").innerHTML = "<p style='color:red;'>⚠️ Please select a date.</p>";
+        return; // Stops further execution if no date is selected
+    }
+
+    // Convert the selected date to CST (Central Standard Time) by appending a fixed time
+    // "T12:00:00-06:00" ensures a middle-of-the-day time to avoid timezone shifts
+    let date = new Date(selectedDate + "T12:00:00-06:00");
+
+    // Array containing names of the days of the week, starting from Sunday (index 0)
+    const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+    // Get the day index (0 = Sunday, 1 = Monday, ..., 6 = Saturday)
+    let dayIndex = date.getDay();
+
+    // Fetch the correct weekday name based on the day index
+    let dayName = weekdays[dayIndex];
+
+    // Format the selected date into a user-friendly string
+    let formattedDate = date.toLocaleDateString("en-US", {
+        timeZone: "America/Chicago", // Ensures the displayed time is in CST (Chicago Time)
+        weekday: "long",  // Displays full name of the weekday (e.g., "Monday")
+        year: "numeric",  // Displays the year (e.g., "2025")
+        month: "long",    // Displays full name of the month (e.g., "March")
+        day: "numeric"    // Displays the day of the month (e.g., "21")
+    });
+
+    // Get the current time in CST (Central Standard Time)
+    let currentTime = new Date().toLocaleTimeString("en-US", {
+        timeZone: "America/Chicago", // Converts current time to CST
+        hour: "2-digit",  // Displays the hour in two-digit format (e.g., "09")
+        minute: "2-digit" // Displays the minutes in two-digit format (e.g., "30")
+    });
+
+    // Variable to store the library's operating hours message
+    let message = "";
+
+    // Assign library hours based on the selected day's index
+    if (dayIndex >= 1 && dayIndex <= 5) { // If the day is Monday to Friday
+        message = "<strong>Monday to Friday:</strong> 9:00 AM - 6:00 PM CST";
+    } else if (dayIndex === 6) { // If the day is Saturday
+        message = "<strong>Saturday:</strong> 9:00 AM - 3:00 PM CST";
+    } else if (dayIndex === 0) { // If the day is Sunday
+        message = "<strong>Sunday:</strong> Closed";
+    }
+
+    // Display the formatted date, weekday name, current time, and library hours on the webpage
+    document.getElementById("dateOutput").innerHTML = formattedDate;
+    document.getElementById("dayOutput").innerHTML = dayName;
+    document.getElementById("timeOutput").innerHTML = currentTime;
+    document.getElementById("libraryHours").innerHTML = message;
+}
+
+// Ensure script is properly loaded by printing a message to the browser's console
+console.log("Script.js loaded successfully");
